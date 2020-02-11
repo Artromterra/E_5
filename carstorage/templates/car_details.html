@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul class="list-group">
+    {% for car in object_list %} 
+    <h1 class="text-center" style="color: rgb(182, 69, 69); font-family: 'Lobster', cursive;">Модель машины - {{car.car_model}} </h1>
+    <li class="list-group-item" style="background-color: rgba(171, 196, 206, 0.3);">
+        <p style="color: rgb(255, 254, 254);">Модель: {{car.car_model}} </p> 
+    </li>
+    <li class="list-group-item" style="background-color: rgba(171, 196, 206, 0.3);">
+        <p style="color: rgb(255, 254, 254);">Производитель: {{car.manufacturer}} </p>
+
+    </li>
+    <li class="list-group-item" style="background-color: rgba(171, 196, 206, 0.3);">
+        {% if car.transmission_name == 1 %}
+           <p style="color: rgb(255, 254, 254);">Коробка передач: Механика</p>
+        {% endif %}
+        {% if car.transmission_name == 2 %}
+            <p style="color: rgb(255, 254, 254);">Коробка передач: Автомат</p>
+        {% endif %}
+        {% if car.transmission_name == 3 %}
+            <p style="color: rgb(255, 254, 254);">Коробка передач: Робот</p>
+        {% endif %}
+    </li>
+    <li class="list-group-item" style="background-color: rgba(171, 196, 206, 0.3);">
+        <p style="color: rgb(255, 254, 254);">Год выпуска: {{car.release}}</p>
+    </li>
+    <li class="list-group-item" style="background-color: rgba(171, 196, 206, 0.3);">
+        <p style="color: rgb(255, 254, 254);">Цвет: {{car.color}}</p>
+    {% endfor %}
+</ul>
+<a href="{% url 'carstorage:car_list' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Назад</a>
+{% endblock %}

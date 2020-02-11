@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+<h1 class="text-center">Список машин</h1>
+{% endblock %}
+{% block content %}
+<nav class="navbar navbar-light" style="background-color: rgb(221, 247, 242);">
+  <form action="{% url 'carstorage:car_details' %}" method="get" class="form-inline">
+    <input name="q" class="form-control mr-sm-2" type="text" placeholder="Тип машины" aria-label="search" required>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+  </form>
+</nav>
+<ul class="list-group"  >
+  {% for car in object_list %}
+    <li class="list-group-item" style="background-color: rgba(171, 196, 206, 0.3);">
+      <p style="color: rgb(255, 254, 254);"> {{ car.car_model }}</p> </li>
+  {% endfor %}
+</ul>
+{% endblock %}

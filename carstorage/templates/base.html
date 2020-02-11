@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "bootstrap/bootstrap.min.css" %}'>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic" rel="stylesheet">
+    <title>{% block title %}Default title{% endblock title %}</title>
+</head>
+<body style="background-image: url('{% static "img/back.jpg" %}'); background-size: cover; background-repeat: no-repeat; background-position: top;"> 
+    {% block content %}
+    {% endblock content %}   
+</body>
+</html>
